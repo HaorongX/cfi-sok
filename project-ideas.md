@@ -1,0 +1,26 @@
+- Cross-container Sync+Sync timing side-channel
+    - Case study including reproduction
+    - A Sync+Sync paper (Gu et al.) demonstrated that this is feasible even across containers isolation
+    - How does different container setup influence the feasibility, bandwidth, and bit error rate?
+    - What's the mitigation? (The papers shared some extremely ambiguous strategies, no data support)
+- Side-channels Attacks in Persistent Storage
+    - Sync + Sync
+    - Write + Sync
+    - Mex + Sync
+    - A survey might be more suitable than a systematic review
+    - A general mitigation? Hardware level? OS level? <- Doesn't look feasible within a month
+- Cache-timing side-channel Attacks
+    - Reproduce one or some of Prime + Probe, Flush + Reload, Flush + Flush, Evict + Reload, Evict + Time
+    - Measure transmit rate, test feasibility, noise rate
+    - Sounds feasible because there is developed and well-tested benchmark, but novelty?
+- SoK: Side-channel Attacks Against Intel SGX
+    - This might be broad, even with the memory isolation in place, there are still many side-channel attacks. e.g. RowHammer, Page fault attack, Cache-timing Side-channel (like Prime + Probe)...
+    - Maybe reuse the taxonomy for side-channel attacks?
+    - However Intel SGX is a set of complicated mechanisms, it takes some time to understand
+- SoK: Hardware-assisted CFI
+    - Using techniques like Shadow Stack, Indirect Branch Tracking to prevent control flow hijack (buffer overflow ...)
+    - Reviews exist but are pretty old (2017), new techniques published?
+- SoK: Techniques for Writing Constant-time Code
+    - Often used in cryptography libraries to prevent timing side-channels
+    - e.g., Branchless selection, avoiding secret-indexed array lookup, etc.
+    - I don't have too many ideas about this, probably too broad

@@ -1,0 +1,98 @@
+\documentclass[journal,onecolumn]{IEEEtran}
+\usepackage{cite}
+% *** GRAPHICS RELATED PACKAGES ***
+\usepackage[pdftex]{graphicx}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{adjustbox}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta, calc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+%\graphicspath{{../pdf/}{../jpeg/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% \usepackage{draftwatermark}
+% \SetWatermarkText{DRAFT}
+% \SetWatermarkScale{1}
+
+\usepackage{easyReview}
+
+\begin{document}
+\title{Research Proposal \\[0.3cm] \large SoK: Hardware-Assisted Control Flow Integrity}
+\author{\IEEEauthorblockN{Haorong Xu}\\
+		Guangzhou, China \\
+        Pioneer Academics \\
+		haorongxu09@gmail.com}
+\maketitle
+
+\section{Introduction}
+
+Control flow hijacking is an attack where the attacker diverts the control flow of the program from its intended path to malicious code, and it remains a prevalent vulnerability. According to Common Vulnerabilities and Exposures Project \cite{cve-website}, tens of control flow hijacking vulnerabilities have been reported since 2025, allowing attackers to leak confidential information, escalate privilege, or execute arbitrary code. As a mitigation, Control Flow Integrity (CFI) is a group of security mechanisms that ensures the control flow follows a predetermined path of a Control Flow Graph \cite{Abadi05}.
+
+CFI can be implemented by software-based measures, hardware-based measures, or hardware-assisted measures. Hardware-assisted CFI leverages both hardware and software defense, so it is also referred to as a hybrid approach. Pure hardware-based and software-based approaches have been criticized for high performance overhead and long time-to-market \cite{Kumar22}. Therefore, the number of hardware-assisted CFI has been growing rapidly in recent years. Efforts have been made to systematically review and evaluate them, and to the best of my knowledge, the most recent systematic review was published in 2022 \cite{Kumar22}. However, given the fast-moving nature of this field and the number of new methods proposed, a new systematic review is required to address the gap and provide insights into recent developments of CFI.
+
+\section{Research Questions}
+
+This research aims to answer the following research questions:
+
+\begin{itemize}
+    \item RQ1: What hardware-assisted CFI are proposed from 2022?
+    \item RQ2: How effective are they against new control flow hijacking attacks?
+    \item RQ3: What are the tradeoffs made by them in terms of feasibility and performance overhead?
+    \item RQ4: What open problems are to be addressed in this field?
+\end{itemize}
+
+\section{Methodology}
+
+This research paper is a Systemization of Knowledge study, so I will follow the Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA) framework \cite{Page22}, which sets out the guidelines for systematic review methodology. In addition, I will adopt the PRISMA Checklist items to the needs of this SoK paper, as outlined in this section.
+
+\subsection{Eligibility Criteria}
+
+After the initial searching phase is completed, I will assess the appropriateness of studies using the following eligibility criteria:
+
+\begin{itemize}
+    \item EC1: The study must directly address the field of computer memory security in the context of CFI.
+    \item EC2: The study must either 1. propose a novel CFI defense or 2. evaluate a CFI defense.
+    \item EC3: The CFI addressed in the study must be hardware-assisted. That is, it must be a hybrid method that is implemented on both hardware and software levels.
+    \item EC4: The study must be published in or after 2022 and not reviewed already in \cite{Kumar22}.
+\end{itemize}
+
+\subsection{Information Sources}
+
+Sources will be primarily selected from digital libraries including ACM Digital Library \cite{ACMDLib}, IEEE Xplore \cite{IEEEXplore}, arXiv \cite{arXiv}, MDPI \cite{MDPI}, Springer Nature Link \cite{SpringerNature}, and ScienceDirect \cite{ScienceDirect}, in conjunction with security publication venues including USENIX \cite{USENIX} and NDSS \cite{NDSS}. I will also use Google Scholar \cite{GoogleScholar} for forward and backward citation chasing.
+
+\subsection{Search Strategy}
+
+I will first use a combination of keywords decided by me, and add more keywords that occur frequently in the papers I collected. After the initial pass of collecting and screening sources, I will proceed to use forward and backward citation chasing to collect more related work. Subsequently, I will remove all duplicate items and assess newly added sources against the eligibility criteria.
+
+The search results are expected to be exported in August 2026.
+
+\subsection{Synthesis Method}
+
+By tabulating the CFI characteristics and comparing them against the defense evaluated in \cite{Kumar22}, I will map all sources to the taxonomy proposed by Kumar et al., which categorizes hardware-assisted CFI into binary-based defense, process-based defense, and system-based defense. If a defense does not fit into these three categories, I will evaluate it separately and try to aggregate such outlying defenses in case a new type of CFI occurred after 2022.
+
+After mapping the defenses, I will extract the common characteristics within the aforementioned subgroups and try to identify any open problems.
+
+\section{Expected Outcome}
+
+I expected the study to extend the taxonomy developed by \cite{Kumar22} by systematically classifying recent hardware-assisted CFI. In addition, the study will, upon its successful completion, provide a comparative analysis of groups of CFI in terms of implementation feasibility, performance overhead, and to what extent they mitigate control flow hijacking. Finally, it will highlight the open questions that need to be addressed in future research.
+
+\section{Plan B}
+
+If I fail to identify a research gap to focus on, or if no original insights can be extracted, I will instead change this paper into a replication and extension of \cite{Kumar22}.
+
+\bibliographystyle{IEEEtran}
+\hypersetup{hidelinks,pdfborder={0 0 0},breaklinks=true}
+\bibliography{refs}
+\end{document}
